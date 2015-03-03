@@ -29,23 +29,20 @@
       {{> inputbox}}
       
       {{> ticks}}
-
-
-    </div><!-- /.container -->
-
-
-
+    </div>
 </body>
 
+
 <template name="inputbox">
-  <input type="text" id="message" />
-  <input type="button" id="btnSend" value="send" />
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="input-group">
+	<input type="text" id="message" class="form-control" placeholder="your message">
+	<span class="input-group-btn">
+	  <button class="btn btn-confirm" type="button" id="btnSend">send <span class="glyphicon glyphicon-send" aria-hidden="true"></span></button>
+	</span>
+      </div>
+    </div>
+  </div>
 </template>
 
-
-<template name="ticks">
-  Here will be hitch updates.
-  {{#each messages}}
-    <li>{{text}} {{prettyTime datetime}}</li>
-  {{/each}}
-</template>

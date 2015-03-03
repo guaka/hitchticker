@@ -1,0 +1,8 @@
+
+<template name="ticks">
+  Recent messages
+  {{#each messages}}
+    <li>{{text}} <span class="when">{{prettyTime datetime}}</span></li>
+  {{/each}}
+</template>
+
