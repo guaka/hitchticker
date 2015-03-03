@@ -2,7 +2,8 @@
 sendMessage = ->
   msg = $("#message").val()
   console.log msg
-  Messages.insert {text: msg}
+  now = new Date()
+  Messages.insert {text: msg, datetime: now}
   $('#message').val('')
 
 
@@ -15,4 +16,7 @@ Template.inputbox.events
 
 
 Template.ticks.helpers
-  messages: Messages.find {}
+  messages: Messages.find {}, {sort: {datetime: -1}}
+  prettyTime: (t) ->
+    moment(t).fromNow()
+	

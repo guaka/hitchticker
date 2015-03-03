@@ -12,3 +12,4 @@ nemo64:bootstrap
 coffeescript
 accounts-ui
 accounts-password
+momentjs:moment
