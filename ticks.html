@@ -2,7 +2,9 @@
 <template name="ticks">
   Recent messages
   {{#each messages}}
-    <li>{{text}} <span class="when">{{prettyTime datetime}}</span></li>
+    <li>{{text}} 
+      <span class="when">{{prettyTime datetime}}</span> 
+      <span class="who">{{userName userId}}</span></li>
   {{/each}}
 </template>
 
