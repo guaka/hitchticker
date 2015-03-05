@@ -1,15 +1,19 @@
 # hitchticker
 
-## An Open Source Ticker, easy to use and accessable
+An Open Source Ticker, easy to use and accessable.
 
-We urgently need it for our next hitchhiking race. Include something like this in my blog to give short life-signs from the road while going around the world. Target group hitchhikers, for sure. 
-
-It should be easy to integrate into websites and blogs through a widget.
-
-## Online and SMS
-
-Everything is about Internet today. But on the road you wont have internet all the time. especially when we race in some abandoned area. So an SMS feature is needed. Text and (maybe) pictures.
+## Requirements
+- Needed for next [DTSG](http://www.sporttrampen.de/) hitchhiking race in Germany, end of [April 2015](http://www.sporttrampen.de/2015/02/dtsg-rennen-in-der-markischen-schweiz.html).
+- Target group: hitchhikers.
+- It should be easy to integrate into websites and blogs through a widget.
+- Usable through a web interface and also through SMS
 
 ## Keep it simple but expandable
 
 Keep it simple, make it going and then add things if needed.
+
+
+## Who
+
+- [Kasper Souren](http://kasper.re/) is building this.
+- You? Feel free to create pull requests and participate in [discussions](https://github.com/guaka/hitchticker/issues)
