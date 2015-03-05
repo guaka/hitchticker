@@ -20,3 +20,7 @@ Template.ticks.helpers
   prettyTime: (t) ->
     moment(t).fromNow()
 	
+
+
+Router.route '/', ->
+	this.render 'Home'
