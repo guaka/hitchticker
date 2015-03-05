@@ -30,8 +30,10 @@
 
       <h1>Welcome to Hitchticker!</h1>
 
+      {{#if currentUser}}
       {{> inputbox}}
-      
+      {{/if}}
+
       {{> ticks}}
     </div>
 </template>
