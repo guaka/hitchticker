@@ -17,7 +17,7 @@ Template.inputbox.events
 
 Template.ticks.helpers
   messages: Messages.find {}, {sort: {datetime: -1}}
-  prettyTime: (t) -> moment(t).fromNow()
+  prettyTime: (t) -> moment(t).format 'YYYY-MM-DD H:mm:ss'
   userName: (id) -> Meteor.users.findOne(id)?.emails?[0]?.address
 
 
