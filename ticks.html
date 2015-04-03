@@ -1,10 +1,21 @@
 
 <template name="ticks">
-  Recent messages
   {{#each messages}}
-    <li>{{text}} 
-      <span class="when">{{prettyTime datetime}}</span> 
-      <span class="who">{{userName userId}}</span></li>
+
+  <div class="media">
+    <div class="media-left media-middle">
+      <a href="#">
+        <img class="media-object" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+      </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">
+        {{userName userId}}
+      </h4>
+      <small class="text-muted">{{prettyTime datetime}}</small>
+      {{text}}
+    </div>
+  </div>
+  
   {{/each}}
 </template>
-

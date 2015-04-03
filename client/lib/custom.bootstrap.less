@@ -3524,72 +3524,816 @@ input[type="button"] {
 
 
 
-// @import "bootstrap/less/responsive-embed.less"
-// Embeds responsive
+// @import "bootstrap/less/list-group.less"
 //
-// Credit: Nicolas Gallagher and SUIT CSS.
-
-.embed-responsive {
-  position: relative;
-  display: block;
-  height: 0;
-  padding: 0;
-  overflow: hidden;
-
-  .embed-responsive-item,
-  iframe,
-  embed,
-  object,
-  video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    height: 100%;
-    width: 100%;
-    border: 0;
-  }
-
-  // Modifier class for 16:9 aspect ratio
-  &.embed-responsive-16by9 {
-    padding-bottom: 56.25%;
-  }
-
-  // Modifier class for 4:3 aspect ratio
-  &.embed-responsive-4by3 {
-    padding-bottom: 75%;
-  }
-}
-
-
-
-// @import "bootstrap/less/wells.less"
-//
-// Wells
+// List groups
 // --------------------------------------------------
 
 
 // Base class
-.well {
-  min-height: 20px;
-  padding: 19px;
+//
+// Easily usable on <ul>, <ol>, or <div>.
+
+.list-group {
+  // No need to set list-style: none; since .list-group-item is block level
   margin-bottom: 20px;
-  background-color: @well-bg;
-  border: 1px solid @well-border;
-  border-radius: @border-radius-base;
-  .box-shadow(inset 0 1px 1px rgba(0,0,0,.05));
-  blockquote {
-    border-color: #ddd;
-    border-color: rgba(0,0,0,.15);
+  padding-left: 0; // reset padding because ul and ol
+}
+
+
+// Individual list items
+//
+// Use on `li`s or `div`s within the `.list-group` parent.
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  // Place the border on the list items and negative margin up for better styling
+  margin-bottom: -1px;
+  background-color: @list-group-bg;
+  border: 1px solid @list-group-border;
+
+  // Round the first and last items
+  &:first-child {
+    .border-top-radius(@list-group-border-radius);
+  }
+  &:last-child {
+    margin-bottom: 0;
+    .border-bottom-radius(@list-group-border-radius);
+  }
+
+  // Align badges within list items
+  > .badge {
+    float: right;
+  }
+  > .badge + .badge {
+    margin-right: 5px;
   }
 }
 
-// Sizes
-.well-lg {
-  padding: 24px;
-  border-radius: @border-radius-large;
+
+// Linked list items
+//
+// Use anchor elements instead of `li`s or `div`s to create linked list items.
+// Includes an extra `.active` modifier class for showing selected items.
+
+a.list-group-item {
+  color: @list-group-link-color;
+
+  .list-group-item-heading {
+    color: @list-group-link-heading-color;
+  }
+
+  // Hover state
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: @list-group-link-hover-color;
+    background-color: @list-group-hover-bg;
+  }
 }
-.well-sm {
-  padding: 9px;
-  border-radius: @border-radius-small;
+
+.list-group-item {
+  // Disabled state
+  &.disabled,
+  &.disabled:hover,
+  &.disabled:focus {
+    background-color: @list-group-disabled-bg;
+    color: @list-group-disabled-color;
+    cursor: @cursor-disabled;
+
+    // Force color to inherit for custom content
+    .list-group-item-heading {
+      color: inherit;
+    }
+    .list-group-item-text {
+      color: @list-group-disabled-text-color;
+    }
+  }
+
+  // Active class on item itself, not parent
+  &.active,
+  &.active:hover,
+  &.active:focus {
+    z-index: 2; // Place active items above their siblings for proper border styling
+    color: @list-group-active-color;
+    background-color: @list-group-active-bg;
+    border-color: @list-group-active-border;
+
+    // Force color to inherit for custom content
+    .list-group-item-heading,
+    .list-group-item-heading > small,
+    .list-group-item-heading > .small {
+      color: inherit;
+    }
+    .list-group-item-text {
+      color: @list-group-active-text-color;
+    }
+  }
+}
+
+
+// Contextual variants
+//
+// Add modifier classes to change text and background color on individual items.
+// Organizationally, this must come after the `:hover` states.
+
+.list-group-item-variant(success; @state-success-bg; @state-success-text);
+.list-group-item-variant(info; @state-info-bg; @state-info-text);
+.list-group-item-variant(warning; @state-warning-bg; @state-warning-text);
+.list-group-item-variant(danger; @state-danger-bg; @state-danger-text);
+
+
+// Custom content options
+//
+// Extra classes for creating well-formatted content within `.list-group-item`s.
+
+.list-group-item-heading {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.list-group-item-text {
+  margin-bottom: 0;
+  line-height: 1.3;
+}
+
+
+
+// @import "bootstrap/less/panels.less"
+//
+// Panels
+// --------------------------------------------------
+
+
+// Base class
+.panel {
+  margin-bottom: @line-height-computed;
+  background-color: @panel-bg;
+  border: 1px solid transparent;
+  border-radius: @panel-border-radius;
+  .box-shadow(0 1px 1px rgba(0,0,0,.05));
+}
+
+// Panel contents
+.panel-body {
+  padding: @panel-body-padding;
+  &:extend(.clearfix all);
+}
+
+// Optional heading
+.panel-heading {
+  padding: @panel-heading-padding;
+  border-bottom: 1px solid transparent;
+  .border-top-radius((@panel-border-radius - 1));
+
+  > .dropdown .dropdown-toggle {
+    color: inherit;
+  }
+}
+
+// Within heading, strip any `h*` tag of its default margins for spacing.
+.panel-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: ceil((@font-size-base * 1.125));
+  color: inherit;
+
+  > a {
+    color: inherit;
+  }
+}
+
+// Optional footer (stays gray in every modifier class)
+.panel-footer {
+  padding: @panel-footer-padding;
+  background-color: @panel-footer-bg;
+  border-top: 1px solid @panel-inner-border;
+  .border-bottom-radius((@panel-border-radius - 1));
+}
+
+
+// List groups in panels
+//
+// By default, space out list group content from panel headings to account for
+// any kind of custom content between the two.
+
+.panel {
+  > .list-group,
+  > .panel-collapse > .list-group {
+    margin-bottom: 0;
+
+    .list-group-item {
+      border-width: 1px 0;
+      border-radius: 0;
+    }
+
+    // Add border top radius for first one
+    &:first-child {
+      .list-group-item:first-child {
+        border-top: 0;
+        .border-top-radius((@panel-border-radius - 1));
+      }
+    }
+    // Add border bottom radius for last one
+    &:last-child {
+      .list-group-item:last-child {
+        border-bottom: 0;
+        .border-bottom-radius((@panel-border-radius - 1));
+      }
+    }
+  }
+}
+// Collapse space between when there's no additional content.
+.panel-heading + .list-group {
+  .list-group-item:first-child {
+    border-top-width: 0;
+  }
+}
+.list-group + .panel-footer {
+  border-top-width: 0;
+}
+
+// Tables in panels
+//
+// Place a non-bordered `.table` within a panel (not within a `.panel-body`) and
+// watch it go full width.
+
+.panel {
+  > .table,
+  > .table-responsive > .table,
+  > .panel-collapse > .table {
+    margin-bottom: 0;
+
+    caption {
+      padding-left: @panel-body-padding;
+      padding-right: @panel-body-padding;
+    }
+  }
+  // Add border top radius for first one
+  > .table:first-child,
+  > .table-responsive:first-child > .table:first-child {
+    .border-top-radius((@panel-border-radius - 1));
+
+    > thead:first-child,
+    > tbody:first-child {
+      > tr:first-child {
+        border-top-left-radius: (@panel-border-radius - 1);
+        border-top-right-radius: (@panel-border-radius - 1);
+
+        td:first-child,
+        th:first-child {
+          border-top-left-radius: (@panel-border-radius - 1);
+        }
+        td:last-child,
+        th:last-child {
+          border-top-right-radius: (@panel-border-radius - 1);
+        }
+      }
+    }
+  }
+  // Add border bottom radius for last one
+  > .table:last-child,
+  > .table-responsive:last-child > .table:last-child {
+    .border-bottom-radius((@panel-border-radius - 1));
+
+    > tbody:last-child,
+    > tfoot:last-child {
+      > tr:last-child {
+        border-bottom-left-radius: (@panel-border-radius - 1);
+        border-bottom-right-radius: (@panel-border-radius - 1);
+
+        td:first-child,
+        th:first-child {
+          border-bottom-left-radius: (@panel-border-radius - 1);
+        }
+        td:last-child,
+        th:last-child {
+          border-bottom-right-radius: (@panel-border-radius - 1);
+        }
+      }
+    }
+  }
+  > .panel-body + .table,
+  > .panel-body + .table-responsive,
+  > .table + .panel-body,
+  > .table-responsive + .panel-body {
+    border-top: 1px solid @table-border-color;
+  }
+  > .table > tbody:first-child > tr:first-child th,
+  > .table > tbody:first-child > tr:first-child td {
+    border-top: 0;
+  }
+  > .table-bordered,
+  > .table-responsive > .table-bordered {
+    border: 0;
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th:first-child,
+        > td:first-child {
+          border-left: 0;
+        }
+        > th:last-child,
+        > td:last-child {
+          border-right: 0;
+        }
+      }
+    }
+    > thead,
+    > tbody {
+      > tr:first-child {
+        > td,
+        > th {
+          border-bottom: 0;
+        }
+      }
+    }
+    > tbody,
+    > tfoot {
+      > tr:last-child {
+        > td,
+        > th {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+  > .table-responsive {
+    border: 0;
+    margin-bottom: 0;
+  }
+}
+
+
+// Collapsable panels (aka, accordion)
+//
+// Wrap a series of panels in `.panel-group` to turn them into an accordion with
+// the help of our collapse JavaScript plugin.
+
+.panel-group {
+  margin-bottom: @line-height-computed;
+
+  // Tighten up margin so it's only between panels
+  .panel {
+    margin-bottom: 0;
+    border-radius: @panel-border-radius;
+
+    + .panel {
+      margin-top: 5px;
+    }
+  }
+
+  .panel-heading {
+    border-bottom: 0;
+
+    + .panel-collapse > .panel-body,
+    + .panel-collapse > .list-group {
+      border-top: 1px solid @panel-inner-border;
+    }
+  }
+
+  .panel-footer {
+    border-top: 0;
+    + .panel-collapse .panel-body {
+      border-bottom: 1px solid @panel-inner-border;
+    }
+  }
+}
+
+
+// Contextual variations
+.panel-default {
+  .panel-variant(@panel-default-border; @panel-default-text; @panel-default-heading-bg; @panel-default-border);
+}
+.panel-primary {
+  .panel-variant(@panel-primary-border; @panel-primary-text; @panel-primary-heading-bg; @panel-primary-border);
+}
+.panel-success {
+  .panel-variant(@panel-success-border; @panel-success-text; @panel-success-heading-bg; @panel-success-border);
+}
+.panel-info {
+  .panel-variant(@panel-info-border; @panel-info-text; @panel-info-heading-bg; @panel-info-border);
+}
+.panel-warning {
+  .panel-variant(@panel-warning-border; @panel-warning-text; @panel-warning-heading-bg; @panel-warning-border);
+}
+.panel-danger {
+  .panel-variant(@panel-danger-border; @panel-danger-text; @panel-danger-heading-bg; @panel-danger-border);
+}
+
+
+
+// @import "bootstrap/less/dropdowns.less"
+//
+// Dropdown menus
+// --------------------------------------------------
+
+
+// Dropdown arrow/caret
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top:   @caret-width-base solid;
+  border-right: @caret-width-base solid transparent;
+  border-left:  @caret-width-base solid transparent;
+}
+
+// The dropdown wrapper (div)
+.dropdown {
+  position: relative;
+}
+
+// Prevent the focus on the dropdown toggle when closing dropdowns
+.dropdown-toggle:focus {
+  outline: 0;
+}
+
+// The dropdown menu (ul)
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: @zindex-dropdown;
+  display: none; // none by default, but block on "open" of the menu
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0; // override default ul
+  list-style: none;
+  font-size: @font-size-base;
+  text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+  background-color: @dropdown-bg;
+  border: 1px solid @dropdown-fallback-border; // IE8 fallback
+  border: 1px solid @dropdown-border;
+  border-radius: @border-radius-base;
+  .box-shadow(0 6px 12px rgba(0,0,0,.175));
+  background-clip: padding-box;
+
+  // Aligns the dropdown menu to right
+  //
+  // Deprecated as of 3.1.0 in favor of `.dropdown-menu-[dir]`
+  &.pull-right {
+    right: 0;
+    left: auto;
+  }
+
+  // Dividers (basically an hr) within the dropdown
+  .divider {
+    .nav-divider(@dropdown-divider-bg);
+  }
+
+  // Links within the dropdown menu
+  > li > a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: @line-height-base;
+    color: @dropdown-link-color;
+    white-space: nowrap; // prevent links from randomly breaking onto new lines
+  }
+}
+
+// Hover/Focus state
+.dropdown-menu > li > a {
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: @dropdown-link-hover-color;
+    background-color: @dropdown-link-hover-bg;
+  }
+}
+
+// Active state
+.dropdown-menu > .active > a {
+  &,
+  &:hover,
+  &:focus {
+    color: @dropdown-link-active-color;
+    text-decoration: none;
+    outline: 0;
+    background-color: @dropdown-link-active-bg;
+  }
+}
+
+// Disabled state
+//
+// Gray out text and ensure the hover/focus state remains gray
+
+.dropdown-menu > .disabled > a {
+  &,
+  &:hover,
+  &:focus {
+    color: @dropdown-link-disabled-color;
+  }
+
+  // Nuke hover/focus effects
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    background-color: transparent;
+    background-image: none; // Remove CSS gradient
+    .reset-filter();
+    cursor: @cursor-disabled;
+  }
+}
+
+// Open state for the dropdown
+.open {
+  // Show the menu
+  > .dropdown-menu {
+    display: block;
+  }
+
+  // Remove the outline when :focus is triggered
+  > a {
+    outline: 0;
+  }
+}
+
+// Menu positioning
+//
+// Add extra class to `.dropdown-menu` to flip the alignment of the dropdown
+// menu with the parent.
+.dropdown-menu-right {
+  left: auto; // Reset the default from `.dropdown-menu`
+  right: 0;
+}
+// With v3, we enabled auto-flipping if you have a dropdown within a right
+// aligned nav component. To enable the undoing of that, we provide an override
+// to restore the default dropdown menu alignment.
+//
+// This is only for left-aligning a dropdown menu within a `.navbar-right` or
+// `.pull-right` nav component.
+.dropdown-menu-left {
+  left: 0;
+  right: auto;
+}
+
+// Dropdown section headers
+.dropdown-header {
+  display: block;
+  padding: 3px 20px;
+  font-size: @font-size-small;
+  line-height: @line-height-base;
+  color: @dropdown-header-color;
+  white-space: nowrap; // as with > li > a
+}
+
+// Backdrop to catch body clicks on mobile, etc.
+.dropdown-backdrop {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: (@zindex-dropdown - 10);
+}
+
+// Right aligned dropdowns
+.pull-right > .dropdown-menu {
+  right: 0;
+  left: auto;
+}
+
+// Allow for dropdowns to go bottom up (aka, dropup-menu)
+//
+// Just add .dropup after the standard .dropdown class and you're set, bro.
+// TODO: abstract this so that the navbar fixed styles are not placed here?
+
+.dropup,
+.navbar-fixed-bottom .dropdown {
+  // Reverse the caret
+  .caret {
+    border-top: 0;
+    border-bottom: @caret-width-base solid;
+    content: "";
+  }
+  // Different positioning for bottom up menu
+  .dropdown-menu {
+    top: auto;
+    bottom: 100%;
+    margin-bottom: 1px;
+  }
+}
+
+
+// Component alignment
+//
+// Reiterate per navbar.less and the modified component alignment there.
+
+@media (min-width: @grid-float-breakpoint) {
+  .navbar-right {
+    .dropdown-menu {
+      .dropdown-menu-right();
+    }
+    // Necessary for overrides of the default right aligned menu.
+    // Will remove come v4 in all likelihood.
+    .dropdown-menu-left {
+      .dropdown-menu-left();
+    }
+  }
+}
+
+
+
+// @import "bootstrap/less/responsive-utilities.less"
+//
+// Responsive: Utility classes
+// --------------------------------------------------
+
+
+// IE10 in Windows (Phone) 8
+//
+// Support for responsive views via media queries is kind of borked in IE10, for
+// Surface/desktop in split view and for Windows Phone 8. This particular fix
+// must be accompanied by a snippet of JavaScript to sniff the user agent and
+// apply some conditional CSS to *only* the Surface/desktop Windows 8. Look at
+// our Getting Started page for more information on this bug.
+//
+// For more information, see the following:
+//
+// Issue: https://github.com/twbs/bootstrap/issues/10497
+// Docs: http://getbootstrap.com/getting-started/#support-ie10-width
+// Source: http://timkadlec.com/2013/01/windows-phone-8-and-device-width/
+// Source: http://timkadlec.com/2012/10/ie10-snap-mode-and-responsive-design/
+
+@-ms-viewport {
+  width: device-width;
+}
+
+
+// Visibility utilities
+// Note: Deprecated .visible-xs, .visible-sm, .visible-md, and .visible-lg as of v3.2.0
+.visible-xs,
+.visible-sm,
+.visible-md,
+.visible-lg {
+  .responsive-invisibility();
+}
+
+.visible-xs-block,
+.visible-xs-inline,
+.visible-xs-inline-block,
+.visible-sm-block,
+.visible-sm-inline,
+.visible-sm-inline-block,
+.visible-md-block,
+.visible-md-inline,
+.visible-md-inline-block,
+.visible-lg-block,
+.visible-lg-inline,
+.visible-lg-inline-block {
+  display: none !important;
+}
+
+.visible-xs {
+  @media (max-width: @screen-xs-max) {
+    .responsive-visibility();
+  }
+}
+.visible-xs-block {
+  @media (max-width: @screen-xs-max) {
+    display: block !important;
+  }
+}
+.visible-xs-inline {
+  @media (max-width: @screen-xs-max) {
+    display: inline !important;
+  }
+}
+.visible-xs-inline-block {
+  @media (max-width: @screen-xs-max) {
+    display: inline-block !important;
+  }
+}
+
+.visible-sm {
+  @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    .responsive-visibility();
+  }
+}
+.visible-sm-block {
+  @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    display: block !important;
+  }
+}
+.visible-sm-inline {
+  @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    display: inline !important;
+  }
+}
+.visible-sm-inline-block {
+  @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    display: inline-block !important;
+  }
+}
+
+.visible-md {
+  @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    .responsive-visibility();
+  }
+}
+.visible-md-block {
+  @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    display: block !important;
+  }
+}
+.visible-md-inline {
+  @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    display: inline !important;
+  }
+}
+.visible-md-inline-block {
+  @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    display: inline-block !important;
+  }
+}
+
+.visible-lg {
+  @media (min-width: @screen-lg-min) {
+    .responsive-visibility();
+  }
+}
+.visible-lg-block {
+  @media (min-width: @screen-lg-min) {
+    display: block !important;
+  }
+}
+.visible-lg-inline {
+  @media (min-width: @screen-lg-min) {
+    display: inline !important;
+  }
+}
+.visible-lg-inline-block {
+  @media (min-width: @screen-lg-min) {
+    display: inline-block !important;
+  }
+}
+
+.hidden-xs {
+  @media (max-width: @screen-xs-max) {
+    .responsive-invisibility();
+  }
+}
+.hidden-sm {
+  @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    .responsive-invisibility();
+  }
+}
+.hidden-md {
+  @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    .responsive-invisibility();
+  }
+}
+.hidden-lg {
+  @media (min-width: @screen-lg-min) {
+    .responsive-invisibility();
+  }
+}
+
+
+// Print utilities
+//
+// Media queries are placed on the inside to be mixin-friendly.
+
+// Note: Deprecated .visible-print as of v3.2.0
+.visible-print {
+  .responsive-invisibility();
+
+  @media print {
+    .responsive-visibility();
+  }
+}
+.visible-print-block {
+  display: none !important;
+
+  @media print {
+    display: block !important;
+  }
+}
+.visible-print-inline {
+  display: none !important;
+
+  @media print {
+    display: inline !important;
+  }
+}
+.visible-print-inline-block {
+  display: none !important;
+
+  @media print {
+    display: inline-block !important;
+  }
+}
+
+.hidden-print {
+  @media print {
+    .responsive-invisibility();
+  }
 }

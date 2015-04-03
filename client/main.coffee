@@ -22,4 +22,7 @@ Template.ticks.helpers
 
 
 Router.route '/', ->
-	this.render 'Home'
+	this.render 'stream'
+
+Router.route '/profile', ->
+	this.render 'profile'

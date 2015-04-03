@@ -25,27 +25,27 @@
   "alerts":               false,
   "progress-bars":        false,
   "media":                false,
-  "list-group":           false,
-  "panels":               false,
-  "responsive-embed":     true,
-  "wells":                true,
+  "list-group":           true,
+  "panels":               true,
+  "responsive-embed":     false,
+  "wells":                false,
   "close":                false,
 
   "component-animations": false,
-  "dropdowns":            false,
+  "dropdowns":            true,
   "modals":               false,
   "tooltip":              false,
   "popovers":             false,
   "carousel":             false,
-  
+
   "affix":                false,
   "alert":                false,
   "button":               true,
-  "collapse":             false,
+  "collapse":             true,
   "scrollspy":            false,
   "tab":                  false,
   "transition":           false,
 
   "utilities":            false,
-  "responsive-utilities": false
+  "responsive-utilities": true
 }}
