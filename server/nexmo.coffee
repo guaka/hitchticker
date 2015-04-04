@@ -13,7 +13,9 @@ if nexmo_callback_secret?
     NexmoMessages.insert sms_data
     Messages.insert
       text: sms_data.text
-      dateime: new Date()
+      datetime: new Date()
     @response.end JSON.stringify sms_data
   ,
     where: 'server'
+else
+  console.log 'nexmo callback secret not defined'
