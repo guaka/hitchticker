@@ -4,7 +4,7 @@ sendMessage = ->
   console.log msg
   now = new Date()
   Messages.insert {text: msg, datetime: now, userId: Meteor.userId() }
-  $('#message').val('')
+  $('#message').val ''
 
 Template.inputbox.events
   'focus #message': (evt, template) ->

@@ -19,7 +19,7 @@ Meteor.startup ->
     {
       field: 'phone'
       label: 'Your phone number'
-      placeholder: 'Your phonenumber'
+      placeholder: 'Your phone number'
       type: 'text'
       required: false
     }]
