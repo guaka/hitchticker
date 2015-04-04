@@ -14,6 +14,7 @@ if nexmo_callback_secret?
     Messages.insert
       text: sms_data.text
       datetime: new Date()
+      sms_id: sms_data.messageId
     @response.end JSON.stringify sms_data
   ,
     where: 'server'
