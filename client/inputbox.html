@@ -1,11 +1,10 @@
 <template name="inputbox" id="inputbox">
   {{#if currentUser}}
-  focused: {{inputFocused}}
-  <div class="well well-sm clearfix {{inputFocused}}">
-	  <textarea rows="2" id="message" class="form-control" placeholder="What's up?"></textarea>
+  <div class="well well-sm clearfix is-focused-{{isInputFocused}}">
+	  <textarea id="message" class="form-control" placeholder="What's up?"></textarea>
 
     <div class="text-right message-controls">
-      <button class="btn btn-md btn-default pull-right btn-confirm" type="button" id="btnSend"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Tick!</button>
+      <button class="btn btn-lg btn-default pull-right btn-confirm" type="button" id="btnSend"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Tick!</button>
     </div>
 
   </div>

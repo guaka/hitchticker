@@ -1,7 +1,18 @@
 
+
+.transition(@transition) {
+  -webkit-transition: @transition;
+  -moz-transition: @transition;
+  transition: @transition;
+}
+
+
 // Nudge content down little bit, or it'll hide behind the header
 body {
   margin-top: 70px;
+  &.Widget {
+    margin-top: 10px;
+  }
 }
 
 
@@ -36,17 +47,18 @@ body {
   margin-bottom: 10px;
   font-size: 18px;
   line-height: 25px;
-  min-height: 60px;
 }
 
-.not-focused {
-  .message-controls {
-    display: hidden;
-  }
+.message-controls {
+  display: block;
+  overflow: hidden;
+  clear: both;
+  max-height: 0;
+	.transition(max-height 0.8s ease-out);
 }
-.is-focused {
+.is-focused-true {
   .message-controls {
-    display: block;
+    max-height: 200px;
   }
 }
 

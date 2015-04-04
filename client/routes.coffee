@@ -3,3 +3,10 @@ Router.route '/', ->
 
 Router.route '/help', ->
   @render 'help'
+
+Router.route '/widget', ->
+  @render 'widget'
+
+
+Router.onBeforeAction 'bodyClass'
+
