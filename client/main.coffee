@@ -47,4 +47,3 @@ Router.route '/', ->
 
 Router.route '/profile', ->
 	this.render 'profile'
->>>>>>> origin/master
