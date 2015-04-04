@@ -10,7 +10,7 @@ if nexmo_callback_secret?
   Router.route '/receive-sms-' + nexmo_callback_secret, ->
     smsData = @request.query
     console.log smsData
-    NexmoMessages.insert sms_data
+    NexmoMessages.insert smsData
     Messages.insert
       text: smsData.text
       datetime: new Date()
