@@ -12,5 +12,5 @@ Router.onBeforeAction 'bodyClass'
 
 
 Router.route '/stream/:id', ->
-  Session.set 'stream_id', @params.id
+  Session.set 'streamId', @params.id
   @render 'stream'

@@ -2,7 +2,12 @@
 # Ticks
 #
 Template.ticks.helpers
-  messages: -> Messages.find {}, {sort: {datetime: -1}}
+  messages: ->
+    if Session.get 'streamId'
+      Messages.find { userId: Session.get('streamId') }, {sort: {datetime: -1}}      
+    else
+      Messages.find {}, {sort: {datetime: -1}}
+  
   prettyTime: (t) -> moment(t).format 'YYYY-MM-DD H:mm:ss'
   agoTime: (t) -> moment(t).fromNow()
   userName: (id) -> Meteor.user()?.profile.name or 'Anonymous'

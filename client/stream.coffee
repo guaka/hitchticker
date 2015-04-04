@@ -1,5 +1,5 @@
 
 
 Template.stream.helpers
-  'streamId': -> Session.get('stream_id')? or false
+  'streamId': -> Session.get('streamId')? or false
   
