@@ -14,17 +14,7 @@ Template.inputbox.events
     inputFocused = true
   'blur #message': (evt, template) ->
     inputFocused = false
-  'keypress #message': (evt, template) ->
-    console.log messageCharsLeft
-    #@messageCharsLeft = $('#message').val().length + 1
-    #if evt.which is 13
-    #  sendMessage()
   'click #btnSend': sendMessage
-
-Template.inputbox.helpers
-  inputFocused: false
-  messageCharsLimit: 500
-  #messageCharsLeft: @messageCharsLimit
 
 Template.inputbox.rendered = ->
   $('#message').autogrow()
@@ -40,10 +30,3 @@ Template.ticks.helpers
   userName: (id) -> 'Anonymous'#Meteor.users.findOne(id)?.username
   #userEmail: (id) -> Meteor.users.findOne(id)?.emails?[0]?.address
   gravatar: () -> 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='
-
-
-Router.route '/', ->
-	this.render 'stream'
-
-Router.route '/profile', ->
-	this.render 'profile'
