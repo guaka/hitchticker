@@ -15,5 +15,3 @@ Template.profile.events
 Template.profile.helpers
   'name': -> Meteor.user()?.profile?.name
   'phone': -> Meteor.user()?.profile?.phone
-
-
