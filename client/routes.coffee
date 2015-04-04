@@ -10,3 +10,7 @@ Router.route '/widget', ->
 
 Router.onBeforeAction 'bodyClass'
 
+
+Router.route '/stream/:id', ->
+  Session.set 'stream_id', @params.id
+  @render 'stream'

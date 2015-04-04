@@ -7,9 +7,9 @@ Template.profile.events
     phone = $('#phone').val()
     console.log name
     if name
-      Meteor.users.update {_id:Meteor.userId()}, {$set:{'profile.name': name}}
+      Meteor.users.update {_id: Meteor.userId()}, {$set: {'profile.name': name}}
     if phone
-      Meteor.users.update {_id:Meteor.userId()}, {$set:{'profile.phone': phone}}
+      Meteor.users.update {_id: Meteor.userId()}, {$set: {'profile.phone': phone}}
     false
 
 Template.profile.helpers
