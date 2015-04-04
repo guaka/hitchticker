@@ -24,11 +24,11 @@
   "thumbnails":           false,
   "alerts":               false,
   "progress-bars":        false,
-  "media":                false,
+  "media":                true,
   "list-group":           true,
   "panels":               true,
   "responsive-embed":     false,
-  "wells":                false,
+  "wells":                true,
   "close":                false,
 
   "component-animations": false,
@@ -46,6 +46,6 @@
   "tab":                  false,
   "transition":           false,
 
-  "utilities":            false,
+  "utilities":            true,
   "responsive-utilities": true
 }}

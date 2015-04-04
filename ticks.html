@@ -2,20 +2,28 @@
 <template name="ticks">
   {{#each messages}}
 
-  <div class="media">
-    <div class="media-left media-middle">
-      <a href="#">
-        <img class="media-object" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
-      </a>
-    </div>
-    <div class="media-body">
-      <h4 class="media-heading">
-        {{userName userId}}
-      </h4>
-      <small class="text-muted">{{prettyTime datetime}}</small>
-      {{text}}
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="media">
+        <div class="media-left media-middle">
+          <a href="#">
+            <img class="media-object" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">
+            {{userName userId}}
+          </h4>
+          <p>
+            {{text}}
+          </p>
+          <small class="text-muted clearfix">
+            <time title="{{datetime}}">{{prettyTime datetime}}</time>
+          </small>
+        </div>
+      </div>
     </div>
   </div>
-  
+
   {{/each}}
 </template>

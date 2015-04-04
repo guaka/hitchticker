@@ -2,6 +2,7 @@ accounts-base@1.1.3
 accounts-password@1.0.6
 accounts-ui@1.1.4
 accounts-ui-unstyled@1.1.6
+agnito:autogrow@0.0.1
 application-configuration@1.0.4
 autopublish@1.0.2
 autoupdate@1.1.5
@@ -20,6 +21,7 @@ email@1.0.5
 fastclick@1.0.2
 follower-livedata@1.0.3
 geojson-utils@1.0.2
+handlebars@1.0.2
 html-tools@1.0.3
 htmljs@1.0.3
 http@1.0.10
@@ -33,6 +35,8 @@ iron:location@1.0.7
 iron:middleware-stack@1.0.7
 iron:router@1.0.7
 iron:url@1.0.7
+joshowens:accounts-entry@1.0.3
+joshowens:simple-form@0.2.2
 jquery@1.11.3
 json@1.0.2
 launch-screen@1.0.1
@@ -47,6 +51,7 @@ minimongo@1.0.6
 mobile-status-bar@1.0.2
 momentjs:moment@2.9.0
 mongo@1.0.11
+mrt:underscore-string-latest@2.3.3
 nemo64:bootstrap@3.3.1_1
 nemo64:bootstrap-data@3.3.1_1
 npm-bcrypt@0.7.7
@@ -58,9 +63,11 @@ reactive-var@1.0.4
 reload@1.1.2
 retry@1.0.2
 routepolicy@1.0.4
+schnie:uploader@2.0.3
 service-configuration@1.0.3
 session@1.0.5
 sha@1.0.2
+softwarerero:accounts-t9n@1.0.3
 spacebars@1.0.5
 spacebars-compiler@1.0.4
 srp@1.0.2
@@ -71,3 +78,5 @@ underscore@1.0.2
 url@1.0.3
 webapp@1.1.6
 webapp-hashing@1.0.2
+wizonesolutions:underscore-string@1.0.0
+zimme:iron-router-active@1.0.1

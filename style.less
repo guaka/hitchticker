@@ -1,4 +1,43 @@
 
-.container-spacer {
-  margin-top: 80px;
+// Nudge content down little bit, or it'll hide behind the header
+body {
+  margin-top: 70px;
+}
+
+
+// Link at the header
+#login-buttons {
+  a {
+    color: #9d9d9d;
+    text-decoration: none;
+    &:active,
+    &:hover {
+      color: #fff;
+    }
+  }
+  #signup-link,
+  #forgot-password-link,
+  .login-close-text {
+    &, &:hover, &:active {
+      color: #9d9d9d;
+    }
+  }
+  #signup-link,
+  #forgot-password-link {
+    &:hover, &:active {
+      text-decoration: underline;
+    }
+  }
+}
+
+
+// Message field
+#message {
+  margin-bottom: 10px;
+}
+
+.message-chars {
+  display: inline-block;
+  line-height: 36px;
+  margin: 0 20px 0 0;
 }

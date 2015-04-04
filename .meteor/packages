@@ -14,3 +14,6 @@ accounts-ui
 accounts-password
 momentjs:moment
 iron:router
+agnito:autogrow
+joshowens:accounts-entry
+zimme:iron-router-active
