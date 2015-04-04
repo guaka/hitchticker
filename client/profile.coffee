@@ -23,9 +23,3 @@ Template.profile.rendered = ->
     defaultCountry: 'de'
     preferredCountries: ['de']
 
-Router.route '/profile', ->
-  @render 'profile'
-
-Router.route '/profile/:id', ->
-  Session.set 'profile_id', @params.id
-  @render 'profile'
