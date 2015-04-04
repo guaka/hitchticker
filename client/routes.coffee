@@ -1,8 +1,5 @@
 Router.route '/', ->
-	this.render 'stream'
+  @render 'stream'
 
 Router.route '/help', ->
-	this.render 'help'
-
-Router.route '/profile', ->
-  this.render 'profile'
+  @render 'help'

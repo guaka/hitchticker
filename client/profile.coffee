@@ -15,3 +15,12 @@ Template.profile.events
 Template.profile.helpers
   'name': -> Meteor.user()?.profile?.name
   'phone': -> Meteor.user()?.profile?.phone
+
+
+
+Router.route '/profile', ->
+  @render 'profile'
+
+Router.route '/profile/:id', ->
+  Session.set 'profile_id', @params.id
+  @render 'profile'
