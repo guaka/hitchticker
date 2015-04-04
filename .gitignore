@@ -1,1 +1,2 @@
 server/secrets.coffee
+server/lib/secrets.coffee
