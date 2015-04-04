@@ -6,3 +6,9 @@ Router.route '/help', ->
 
 Router.route '/profile', ->
   this.render 'profile'
+
+Router.route '/widget', ->
+  this.render 'widget'
+
+
+Router.onBeforeAction('bodyClass')
