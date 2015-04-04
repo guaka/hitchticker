@@ -8,14 +8,14 @@ Meteor.methods
 
 if nexmo_callback_secret?
   Router.route '/receive-sms-' + nexmo_callback_secret, ->
-    sms_data = @request.query
-    console.log sms_data
+    smsData = @request.query
+    console.log smsData
     NexmoMessages.insert sms_data
     Messages.insert
-      text: sms_data.text
+      text: smsData.text
       datetime: new Date()
-      sms_id: sms_data.messageId
-    @response.end JSON.stringify sms_data
+      smsId: smsData.messageId
+    @response.end JSON.stringify smsData
   ,
     where: 'server'
 else
