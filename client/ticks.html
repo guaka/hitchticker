@@ -10,6 +10,9 @@
       <small class="tick-meta text-muted clearfix">
         <img src="{{gravatar userId}}" alt="" class="tick-avatar img-circle">
         <strong>{{userName userId}}</strong> — <time title="{{agoTime datetime}}">{{prettyTime datetime}}</time>
+        {{#if smsId}}
+          <span class="glyphicon glyphicon glyphicon-phone pull-right"></span>
+        {{/if}}
       </small>
     </div>
   </div>
