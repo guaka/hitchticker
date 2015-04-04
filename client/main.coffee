@@ -10,4 +10,4 @@ Template.ticks.helpers
     # Using crypto-md5 mrt package
     email = Meteor.users.findOne(id)?.emails?[0]?.address
     hash = (if (email) then CryptoJS.MD5(email.trim().toLowerCase()).toString() else '')
-    return '//gravatar.com/avatar/' + hash + '?s=32&d=identicon'
+    return '//gravatar.com/avatar/' + hash + '?s=64&d=identicon'
