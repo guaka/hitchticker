@@ -8,11 +8,14 @@ sendMessage = ->
 
 Template.inputbox.events
   'focus #message': (evt, template) ->
-    inputFocused = true
+    Session.set('inputFocused', true)
   'blur #message': (evt, template) ->
-    inputFocused = false
+    Session.set('inputFocused', false)
   'click #btnSend': sendMessage
 
-Template.inputbox.rendered = ->
-  $('#message').autogrow()
+Template.inputbox.helpers = ->
+  inputFocused: -> (Session.get('inputFocused')) ? 'is-focused' : 'not-focused'
 
+Template.inputbox.rendered = ->
+  Session.set('inputFocused', 'false')
+  $('#message').autogrow()
