@@ -1,10 +1,4 @@
-
-
-.transition(@transition) {
-  -webkit-transition: @transition;
-  -moz-transition: @transition;
-  transition: @transition;
-}
+@import "lib/custom.bootstrap.mixins.import.less";
 
 
 // Nudge content down little bit, or it'll hide behind the header
@@ -54,7 +48,7 @@ body {
   overflow: hidden;
   clear: both;
   max-height: 0;
-	.transition(max-height 0.8s ease-out);
+  .transition(max-height 0.8s ease-out);
 }
 .is-focused-true {
   .message-controls {
