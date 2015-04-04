@@ -41,9 +41,3 @@ Template.ticks.helpers
   #userEmail: (id) -> Meteor.users.findOne(id)?.emails?[0]?.address
   gravatar: () -> 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='
 
-
-Router.route '/', ->
-	this.render 'stream'
-
-Router.route '/profile', ->
-	this.render 'profile'
