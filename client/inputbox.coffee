@@ -13,8 +13,9 @@ Template.inputbox.events
     Session.set('inputFocused', false)
   'click #btnSend': sendMessage
 
-Template.inputbox.helpers = ->
-  inputFocused: -> (Session.get('inputFocused')) ? 'is-focused' : 'not-focused'
+Template.inputbox.helpers
+  isInputFocused: ->
+    Session.get('inputFocused')
 
 Template.inputbox.rendered = ->
   Session.set('inputFocused', 'false')
