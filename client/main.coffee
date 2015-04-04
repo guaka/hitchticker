@@ -5,7 +5,7 @@ Template.ticks.helpers
   messages: Messages.find {}, {sort: {datetime: -1}}
   prettyTime: (t) -> moment(t).format 'YYYY-MM-DD H:mm:ss'
   agoTime: (t) -> moment(t).fromNow()
-  userName: (id) -> 'Anonymous'#Meteor.users.findOne(id)?.username
+  userName: (id) -> Meteor.user()?.profile.name or 'Anonymous'
   gravatar: (id) ->
     # Using crypto-md5 mrt package
     email = Meteor.users.findOne(id)?.emails?[0]?.address
