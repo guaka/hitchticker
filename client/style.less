@@ -51,7 +51,7 @@ body {
   overflow: hidden;
   clear: both;
   max-height: 0;
-  .transition(max-height 0.8s ease-out);
+  .transition(max-height 0.5 ease-out);
 }
 .is-focused-true {
   .message-controls {
@@ -81,6 +81,40 @@ body {
 .tick-message {
   font-size: 17px;
   line-height: 22px;
+}
+
+.tick-longtext-toggle {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  .transition(color 0.8 ease-out);
+  cursor: pointer;
+  &:active,
+  &:hover {
+    text-decoration: none;
+    color: #888;
+  }
+  .tick-shorttext {
+    display: block;
+  }
+  .tick-longtext {
+    display: none;
+  }
+  &.is-toggled {
+    &,
+    &:active,
+    &:hover {
+      color: #333;
+      cursor: default;
+      text-decoration: none;
+    }
+    .tick-shorttext {
+      display: none;
+    }
+    .tick-longtext {
+      display: block;
+    }
+  }
 }
 
 .digits {

@@ -5,7 +5,14 @@
   <div class="tick panel panel-default">
     <div class="panel-body">
       <p class="tick-message">
-        {{#autolink}}{{#markdown}}{{{text}}}{{/markdown}}{{/autolink}}
+        {{#if isTextLong text}}
+          <div class="tick-longtext-toggle">
+            <div class="tick-shorttext">{{#autolink}}{{#markdown}}{{{shortText text}}}{{/markdown}}{{/autolink}} <small class="text-muted">(more)</small></div>
+            <div class="tick-longtext">{{#autolink}}{{#markdown}}{{{text}}}{{/markdown}}{{/autolink}}</div>
+          </div>
+        {{else}}
+          {{#autolink}}{{#markdown}}{{{text}}}{{/markdown}}{{/autolink}}
+        {{/if}}
       </p>
       <small class="tick-meta text-muted clearfix">
 
