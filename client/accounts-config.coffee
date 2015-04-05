@@ -15,12 +15,6 @@ Meteor.startup ->
       placeholder: 'Your name'
       type: 'text'
       required: true
-    ,
-      field: 'phone'
-      label: 'Your phone number'
-      placeholder: 'Your phone number'
-      type: 'text'
-      required: false
     ]
     fluidLayout: false
     useContainer: true

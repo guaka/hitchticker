@@ -7,6 +7,9 @@ Template.profile.events
     if name
       Meteor.users.update {_id: Meteor.userId()}, {$set: {'profile.name': name}}
     false
+  'click #btn-reset-phone': (evt) ->
+    evt.preventDefault()
+    Meteor.users.update {_id: Meteor.userId()}, {$set: {'profile.phone': false}}
 
 Template.profile.helpers
   'name': -> Meteor.user()?.profile?.name

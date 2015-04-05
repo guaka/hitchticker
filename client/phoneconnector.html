@@ -1,6 +1,6 @@
 <template name="phoneconnector">
 
-  {{#unless phone}}
+  {{#unless hidePhoneConnector}}
   <div class="alert alert-success text-center" id="phoneconnector">
     <p class="lead">
       Verify your phone number to enable texting by SMS.
@@ -9,10 +9,9 @@
     </p>
     {{#if isNotActiveRoute regex='profile'}}
       <br><br>
-      <a href="#" class="phone-ignore btn btn-success">Ignore</a>
+      <button id="bugMeNot" class="phone-ignore btn btn-success">Ignore</button>
     {{/if}}
   </div>
-  <hr>
   {{/unless}}
 
 </template>

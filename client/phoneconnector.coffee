@@ -1,4 +1,11 @@
 
 Template.phoneconnector.helpers
   inboundNumber: '+491771789420'
-  phone: Meteor.user()?.profile?.phone
+  hidePhoneConnector: ->
+    !Meteor.user() or Meteor.user()?.profile?.phone or Meteor.user()?.profile?.bugmenot
+
+# "Don't bug me" button
+Template.phoneconnector.events
+  'click #bugMeNot': (evt, template) ->
+    evt.preventDefault()
+    Meteor.users.update {_id: Meteor.userId()}, {$set: {'profile.bugmenot': true}}
