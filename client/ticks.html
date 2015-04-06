@@ -7,7 +7,7 @@
       <p class="tick-message">
         {{#if isTextLong text}}
           <div class="tick-longtext-toggle">
-            <div class="tick-shorttext">{{#autolink}}{{#markdown}}{{{shortText text}}}{{/markdown}}{{/autolink}} <small class="text-muted">(more)</small></div>
+            <div class="tick-shorttext">{{#markdown}}{{{shortText text}}}{{/markdown}}<small class="text-muted">(more)</small></div>
             <div class="tick-longtext">{{#autolink}}{{#markdown}}{{{text}}}{{/markdown}}{{/autolink}}</div>
           </div>
         {{else}}

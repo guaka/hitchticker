@@ -8,8 +8,8 @@ Template.ticks.helpers
     else
       Messages.find {}, {sort: {datetime: -1}}
 
-  prettyTime: (t) -> moment(t).format 'YYYY-MM-DD H:mm:ss'
-  agoTime: (t) -> moment(t).fromNow()
+  prettyTime: (time) -> moment(time).format 'YYYY-MM-DD H:mm'
+  agoTime: (time) -> moment(time).fromNow()
   shortText: (text) -> text.substr(0, 400)
   isTextLong: (text) ->
     if text.length > 400 then true else false
@@ -18,7 +18,7 @@ Template.ticks.helpers
     # Using crypto-md5 mrt package
     email = Meteor.users.findOne(id)?.emails?[0]?.address
     hash = (if (email) then CryptoJS.MD5(email.trim().toLowerCase()).toString() else '')
-    return '//gravatar.com/avatar/' + hash + '?s=64&d=identicon'
+    '//gravatar.com/avatar/' + hash + '?s=64&d=identicon'
 
 # Toggle long tick text open
 Template.ticks.events
