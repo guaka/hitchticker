@@ -1,3 +1,4 @@
+
 Router.route '/', ->
   Session.set 'streamId', null
   @render 'stream'

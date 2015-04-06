@@ -1,4 +1,5 @@
 Meteor.startup ->
+  # Server-wise this is handled by Accounts.onCreateUser in server/users.coffee
   AccountsEntry.config
     logo: false
     privacyUrl: false

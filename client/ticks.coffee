@@ -1,6 +1,4 @@
-#
-# Ticks
-#
+
 Template.ticks.helpers
   messages: ->
     if Session.get 'streamId'
@@ -14,5 +12,7 @@ Template.ticks.helpers
   gravatar: (id) ->
     # Using crypto-md5 mrt package
     email = Meteor.users.findOne(id)?.emails?[0]?.address
+    
     hash = (if (email) then CryptoJS.MD5(email.trim().toLowerCase()).toString() else '')
-    return '//gravatar.com/avatar/' + hash + '?s=64&d=identicon'
+    # The previous line can probably become something like CryptoJS.MD5(email?.trim().toLowerCase()).toString() or ''
+    '//gravatar.com/avatar/' + hash + '?s=64&d=identicon'

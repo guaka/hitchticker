@@ -1,12 +1,9 @@
 
+# This is only on the server
 @NexmoMessages = new Mongo.Collection 'nexmo_messages'
 
 
-Meteor.methods
-  'receive_sms': (values) ->
-    console.log values
-
-if nexmo_callback_secret?
+if nexmo_callback_secret?  # This is defined in server/lib/secrets.coffee
   Router.route '/receive-sms-' + nexmo_callback_secret, ->
     smsData = @request.query
     console.log smsData
@@ -19,4 +16,4 @@ if nexmo_callback_secret?
   ,
     where: 'server'
 else
-  console.log 'nexmo callback secret not defined'
+  console.log 'SMS feature disabled. Define nexmo_callback_secret in server/lib/secrets.coffee if you want to receive text messages.'
