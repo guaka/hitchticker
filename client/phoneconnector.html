@@ -1,0 +1,17 @@
+<template name="phoneconnector">
+
+  {{#unless hidePhoneConnector}}
+  <div class="alert alert-success text-center" id="phoneconnector">
+    <p class="lead">
+      Verify your phone number to enable texting by SMS.
+      <br><br>
+      Send code <span class="lead digits">{{phonecode}}</span> to the number <a href="tel:{{inboundNumber}}" class="lead digits text-success">{{inboundNumber}}</a>
+    </p>
+    {{#if isNotActiveRoute regex='profile'}}
+      <br><br>
+      <button id="bugMeNot" class="phone-ignore btn btn-success">No thanks</button>
+    {{/if}}
+  </div>
+  {{/unless}}
+
+</template>

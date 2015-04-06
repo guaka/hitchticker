@@ -14,6 +14,10 @@ Template.inputbox.events
     Session.set 'inputFocused', true
   'blur #message': (evt, template) ->
     Session.set 'inputFocused', false
+  'focus #btnSend': (evt, template) ->
+    Session.set 'inputFocused', true
+  'blur #btnSend': (evt, template) ->
+    Session.set 'inputFocused', false
   'click #btnSend': sendMessage
 
 Template.inputbox.helpers

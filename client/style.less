@@ -1,14 +1,17 @@
 @import "lib/custom.bootstrap.mixins.import.less";
 
+* {
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
 
 // Nudge content down little bit, or it'll hide behind the header
 body {
   margin-top: 70px;
-  &.Widget {
-    margin-top: 10px;
-  }
 }
-
+.container-widget {
+  margin-top: -60px;
+}
 
 // Link at the header
 #login-buttons {
@@ -48,7 +51,7 @@ body {
   overflow: hidden;
   clear: both;
   max-height: 0;
-  .transition(max-height 0.8s ease-out);
+  .transition(max-height 0.8s ease-in-out);
 }
 .is-focused-true {
   .message-controls {
@@ -80,8 +83,67 @@ body {
   line-height: 22px;
 }
 
-// Phone number field
-.intl-tel-input {
-  clear: both;
+.tick-longtext-toggle {
   display: block;
+  color: #333;
+  text-decoration: none;
+  .transition(all 1.0 ease-out);
+  cursor: pointer;
+  &:active,
+  &:hover {
+    text-decoration: none;
+    color: #888;
+  }
+  .tick-shorttext {
+    display: block;
+  }
+  .tick-longtext {
+    display: none;
+  }
+  &.is-toggled {
+    &,
+    &:active,
+    &:hover {
+      color: #333;
+      cursor: default;
+      text-decoration: none;
+    }
+    .tick-shorttext {
+      display: none;
+    }
+    .tick-longtext {
+      display: block;
+    }
+  }
+}
+
+.digits {
+  background: rgba(255, 255, 255, 0.5);
+  display: inline-block;
+  padding: 3px 7px;
+  margin: 3px 0;
+}
+
+.profile-phone {
+  line-height: 40px;
+}
+
+.profile-phone-connector {
+  .lead {
+    font-size: 15px;
+  }
+}
+
+/*
+ * Buttons
+ */
+
+.btn {
+  border-width: 2px;
+}
+#phoneconnector {
+  .btn-success {
+    background: transparent;
+    color: #3c763d;
+  }
 }
