@@ -7,6 +7,26 @@
 
         {{> phoneconnector}}
 
+        <h4>Your personal feed URL</h4>
+        <a href="{{streamURL}}" class="lead highlight text-success">{{streamURL}}</a>
+
+        <br><br>
+
+        <h4>Your personal widget URL</h4>
+        <a href="{{widgetURL}}" class="lead highlight text-success">{{widgetURL}}</a>
+
+        <br><br>
+
+        <h4>Embed your personal feed to your site</h4>
+        <textarea class="form-control input-lg" rows="3">&lt;iframe src="{{widgetURL}}" width="{{iframeWidth}}" height="{{iframeHeight}}" frameborder="0" style="border:0"&gt;&lt;/iframe&gt;</textarea>
+
+        <br><br>
+
+        <h4>Preview</h4>
+        <iframe src="{{widgetURL}}" width="{{iframeWidth}}" height="{{iframeHeight}}" frameborder="0" style="border:0"></iframe>
+
+        <br><br>
+
       </div>
     </div>
   </div>
