@@ -3,7 +3,10 @@ Template.phoneconnector.helpers
   inboundNumber: '+491771789420'
   phonecode: -> Meteor.user()?.profile?.phonecode
   hidePhoneConnector: ->
-    !Meteor.user() or Meteor.user()?.profile?.phone or Meteor.user()?.profile?.bugmenot
+    if Router.current().route.path(this) == '/profile'
+      false
+    else
+      !Meteor.user() or Meteor.user()?.profile?.phone or Meteor.user()?.profile?.bugmenot
 
 # "Don't bug me" button
 Template.phoneconnector.events
