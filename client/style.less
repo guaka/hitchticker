@@ -143,6 +143,14 @@ body {
 
 .btn {
   border-width: 2px;
+  .transition(background 0.2s ease-in-out);
+  &:focus {
+    outline: none;
+  }
+  &.btn-success {
+    background-color: #dff0d8;
+    color: #3c763d;
+  }
 }
 #phoneconnector {
   .btn-success {
