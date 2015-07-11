@@ -1,15 +1,13 @@
-# hitchticker
+# Hitchticker
 
-An Open Source Ticker, easy to use and accessable.
+An Open Source Message Ticker — easy to use and accessable.
 
 ## Requirements
-- Needed for next [DTSG](http://www.sporttrampen.de/) hitchhiking race in Germany, end of [April 2015](http://www.sporttrampen.de/2015/02/dtsg-rennen-in-der-markischen-schweiz.html).
-- Target group: hitchhikers.
+- Used by [DTSG](http://www.sporttrampen.de/) and [Abgefahren e.V.](http://abgefahren-ev.de/) hitchhiking races in Germany.
 - It should be easy to integrate into websites and blogs through a widget.
-- Usable through a web interface and also through SMS
-
-## Keep it simple but expandable
-Keep it simple, make it going and then add things if needed.
+- Usable through a web interface and also through SMS.
+- Mobile first
+- Keep it simple, make it going and then add things if needed.
 
 ## Install
 1. [Install Meteor](https://www.meteor.com/install)
