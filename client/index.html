@@ -30,34 +30,47 @@
 
   {{#if isNotActiveRoute regex='widget'}}
   <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <ul class="nav navbar-nav">
-        <li class="{{isActivePath regex='^/$'}}"><a href="/"><span class="glyphicon glyphicon-comment"></span></a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon glyphicon-info-sign"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            {{#if currentUser}}
-            <li class="{{isActivePath regex='help'}}"><a href="/help">Help</a></li>
-            <li class="divider"></li>
-            {{/if}}
-            <li><a href="http://abgefahren-ev.de/">Abgefahren</a></li>
-            <li><a href="http://sporttrampen.de/">DTSG</a></li>
-            <li><a href="http://hitchwiki.org/">Hitchwiki</a></li>
-            <li><a href="https://www.trustroots.org/">Trustroots</a></li>
-            <li class="divider"></li>
-            <li><a href="https://github.com/guaka/hitchticker">Source code</a></li>
-          </ul>
-        </li>
-        {{#if currentUser}}
-          <li class="{{isActivePath regex='profile'}}"><a href="/profile">Profile</a></li>
-          <li><a href="/sign-out">Sign out</a></li>
-        {{else}}
-          <li class="{{isActivePath regex='sign-in'}}"><a href="/sign-in">Login</a></li>
-          <li class="{{isActivePath regex='sign-up'}}"><a href="/sign-up">Sign up</a></li>
-        {{/if}}
-      </ul>
+    <div class="container-fluid">
+
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand {{isActivePath regex='^/$'}}" href="/"><span class="glyphicon glyphicon-comment"></span></a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon glyphicon-info-sign"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              {{#if currentUser}}
+              <li class="{{isActivePath regex='help'}}"><a href="/help">Help</a></li>
+              <li class="divider"></li>
+              {{/if}}
+              <li><a href="http://abgefahren-ev.de/">Abgefahren</a></li>
+              <li><a href="http://sporttrampen.de/">DTSG</a></li>
+              <li><a href="http://hitchwiki.org/">Hitchwiki</a></li>
+              <li><a href="https://www.trustroots.org/">Trustroots</a></li>
+              <li class="divider"></li>
+              <li><a href="https://github.com/guaka/hitchticker">Source code</a></li>
+            </ul>
+          </li>
+          {{#if currentUser}}
+            <li class="{{isActivePath regex='profile'}}"><a href="/profile">Profile</a></li>
+            <li><a href="/sign-out">Sign out</a></li>
+          {{else}}
+            <li class="{{isActivePath regex='sign-in'}}"><a href="/sign-in">Login</a></li>
+            <li class="{{isActivePath regex='sign-up'}}"><a href="/sign-up">Sign up</a></li>
+          {{/if}}
+        </ul>
+      </div>
+
     </div>
   </nav>
   {{/if}}
