@@ -1,6 +1,8 @@
 
 <template name="help">
 
+  {{#if currentUser}}
+
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-6 col-md-offset-3">
@@ -31,4 +33,11 @@
     </div>
   </div>
 
+  {{else}}
+    <div class="panel panel-info text-center">
+      <div class="panel-body">
+        <em>It's time to <a href="sign-in">login</a> or <a href="sign-up">sign up!</a></em>
+      </div>
+    </div>
+  {{/if}}
 </template>

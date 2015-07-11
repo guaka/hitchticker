@@ -1,5 +1,6 @@
 
 <template name="profile">
+  {{#if currentUser}}
 
   <div class="container">
     <div class="row">
@@ -25,7 +26,7 @@
               <p class="lead profile-phone">{{phone}}</p>
               <button id="btn-reset-phone" class="btn btn-lg btn-default">Reset my number</button>
             {{else}}
-              
+
             {{/if}}
           </div>
         </div>
@@ -38,4 +39,11 @@
 
   {{> stream}}
 
+  {{else}}
+    <div class="panel panel-info text-center">
+      <div class="panel-body">
+        <em>It's time to <a href="sign-in">login</a> or <a href="sign-up">sign up!</a></em>
+      </div>
+    </div>
+  {{/if}}
 </template>
