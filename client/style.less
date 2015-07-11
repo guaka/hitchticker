@@ -13,7 +13,10 @@ body {
   margin-top: -60px;
 }
 
-// Link at the header
+
+/**
+ * Header
+ */
 #login-buttons {
   a {
     color: #9d9d9d;
@@ -39,11 +42,14 @@ body {
 }
 
 
-// Message field
+/**
+ * Message field
+ */
 #message {
   margin-bottom: 10px;
   font-size: 18px;
   line-height: 25px;
+  box-shadow: none;
 }
 
 .message-controls {
@@ -51,7 +57,11 @@ body {
   overflow: hidden;
   clear: both;
   max-height: 0;
-  .transition(max-height 0.8s ease-in-out);
+  .transition(max-height 0.3s ease-in-out);
+}
+.message-tips {
+  color: #888;
+  font-size: 12px;
 }
 .is-focused-true {
   .message-controls {
@@ -59,10 +69,13 @@ body {
   }
 }
 
+
+/**
+ * Tick
+ */
 .tick {
   text-align: left;
 }
-
 .tick-avatar {
   float: left;
   width: 24px;
@@ -83,7 +96,6 @@ body {
   line-height: 22px;
   word-wrap: break-word;
 }
-
 .tick-longtext-toggle {
   display: block;
   color: #333;
@@ -118,20 +130,13 @@ body {
   }
 }
 
-.highlight {
-  background: #d6e9c6;
-  display: inline-block;
-  padding: 3px 7px;
-  margin: 3px 0;
-}
-.alert-success .highlight {
-  background: rgba(255, 255, 255, 0.5);
-}
 
+/**
+ * Profile
+ */
 .profile-phone {
   line-height: 40px;
 }
-
 .profile-phone-connector {
   .lead {
     font-size: 15px;
@@ -141,7 +146,6 @@ body {
 /*
  * Buttons
  */
-
 .btn {
   border-width: 2px;
   .transition(background 0.2s ease-in-out);
@@ -158,4 +162,18 @@ body {
     background: transparent;
     color: #3c763d;
   }
+}
+
+
+/**
+ * Other
+ */
+.highlight {
+ background: #d6e9c6;
+ display: inline-block;
+ padding: 3px 7px;
+ margin: 3px 0;
+}
+.alert-success .highlight {
+ background: rgba(255, 255, 255, 0.5);
 }
