@@ -19,6 +19,10 @@ Router.route '/stream/:id', ->
   Session.set 'streamId', @params.id
   @render 'stream'
 
+Router.route '/stream/:id/:username', ->
+  Session.set 'streamId', @params.id
+  @render 'stream'
+
 Router.route '/profile', ->
   Session.set 'streamId', Meteor.userId()
   @render 'profile'
