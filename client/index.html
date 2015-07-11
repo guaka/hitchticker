@@ -38,8 +38,10 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon glyphicon-info-sign"></span></a>
           <ul class="dropdown-menu" role="menu">
+            {{#if currentUser}}
             <li class="{{isActivePath regex='help'}}"><a href="/help">Help</a></li>
             <li class="divider"></li>
+            {{/if}}
             <li><a href="http://abgefahren-ev.de/">Abgefahren</a></li>
             <li><a href="http://sporttrampen.de/">DTSG</a></li>
             <li><a href="http://hitchwiki.org/">Hitchwiki</a></li>
