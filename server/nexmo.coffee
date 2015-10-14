@@ -7,11 +7,14 @@ if nexmo_callback_secret?  # This is defined in server/lib/secrets.coffee
   Router.route '/receive-sms-' + nexmo_callback_secret, ->
     smsData = @request.query
     console.log smsData
-    NexmoMessages.insert smsData
-    Messages.insert
-      text: smsData.text
-      datetime: new Date()
-      smsId: smsData.messageId
+    if smsData.text.startsWith 'verify'
+      console.log '@todo: verify account here'
+    else
+      NexmoMessages.insert smsData
+      Messages.insert
+        text: smsData.text
+        datetime: new Date()
+        smsId: smsData.messageId
     @response.end JSON.stringify smsData
   ,
     where: 'server'
