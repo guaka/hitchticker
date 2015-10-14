@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/guaka/hitchticker.png?label=ready&title=Ready)](https://waffle.io/guaka/hitchticker)
 # Hitchticker
 
 An Open Source Message Ticker — easy to use and accessable.
