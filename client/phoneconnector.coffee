@@ -1,6 +1,6 @@
 
 Template.phoneconnector.helpers
-  inboundNumber: '+491771789420'
+  inboundNumber: '+491771789334'
   phonecode: -> Meteor.user()?.profile?.phonecode
   hidePhoneConnector: ->
     if Router.current().route.path(this) == '/profile'
