@@ -8,7 +8,9 @@ Template.ticks.helpers
 
   prettyTime: (time) -> moment(time).format 'YYYY-MM-DD H:mm'
   agoTime: (time) -> moment(time).fromNow()
-  shortText: (text) -> text.substr(0, 400)
+  shortText: (text) -> hashlinks text.substr(0, 400)
+  hashlinks: (text) ->
+    text.replace /#(\w+)/g, '<a href="/tag/$1">#$1</a>'
   isTextLong: (text) ->
     if text.length > 400 then true else false
   userName: (id) -> Meteor.users.findOne(id)?.profile.name or 'Anonymous'
@@ -24,3 +26,5 @@ Template.ticks.events
   'click .tick-longtext-toggle': (evt, template) ->
     evt.preventDefault()
     $(evt.currentTarget).addClass("is-toggled")
+
+
